@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="newPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+   <children>
+      <Label layoutX="169.0" layoutY="284.0" text="Fighting">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="333.0" text="Health">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="382.0" text="Luck">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbFighting" layoutX="296.0" layoutY="286.0" prefHeight="47.0" prefWidth="123.0" text="0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbHealth" layoutX="297.0" layoutY="334.0" prefHeight="18.0" prefWidth="93.0" text="0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbLuck" layoutX="297.0" layoutY="382.0" prefHeight="47.0" prefWidth="104.0" text="0">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="btRoll" layoutX="492.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBtRollAction" text="Roll">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
+      <Button fx:id="btAccept" layoutX="470.0" layoutY="369.0" mnemonicParsing="false" onAction="#onBtAcceptAction" text="Accept">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
