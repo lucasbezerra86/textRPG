@@ -2,15 +2,18 @@ package gui;
 
 import java.io.IOException;
 
-import entities.Npc;
+import entities.GameData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class CombatController extends ViewController {
+public class CombatController extends GameData {
 	
+	
+	
+
 	@FXML
 	private Button btAttack;
 	
@@ -30,42 +33,56 @@ public class CombatController extends ViewController {
 	private Label lbCurrentNpc;
 	
 	@FXML
-	private AnchorPane newPane;
+	public AnchorPane newPane;
 	
-	Npc ara01 = new Npc("Aracockra", 7, 14, 2);
 		
 	
 	public void initialize() {
 		lbPlayer.setText(String.valueOf(char01.getHealth()) + "/" + String.valueOf(char01.getMaxHp()));
-		lbNpc.setText(String.valueOf(ara01.getHealth()));
+		lbNpc.setText(String.valueOf(enemies[enemySetting].getHealth()));
+		System.out.println(enemySetting);
 		
 	}
 	
 	public void onBtAttack() {
 		int playerAttack = char01.getFighting() + (int)(Math.random() * 6 + 1);
-		int npcAttack = ara01.getFighting() + (int)(Math.random() * 6 + 1);
+		int npcAttack = (enemies[enemySetting].getFighting())+ (int)(Math.random() * 6 + 1);
 		lbCurrentNpc.setText(String.valueOf(npcAttack));
 		lbCurrentPlayer.setText(String.valueOf(playerAttack));
 		
 		if (playerAttack > npcAttack) {
-			ara01.setHealth(ara01.getHealth() - char01.getDmg());
-			lbNpc.setText(String.valueOf(ara01.getHealth()));
+			enemies[enemySetting].setHealth(enemies[enemySetting].getHealth() - char01.getDmg());
+			lbNpc.setText(String.valueOf(enemies[enemySetting].getHealth()));
 			
 		} else {
-			char01.setHealth(char01.getHealth() - ara01.getDmg());
+			char01.setHealth(char01.getHealth() - enemies[enemySetting].getDmg());
 			lbPlayer.setText(String.valueOf(char01.getHealth()) + "/" + String.valueOf(char01.getMaxHp()));
 		}
 		
-		if (ara01.getHealth() <= 0) {
+		if (enemies[enemySetting].getHealth() <= 0) {
 			btAttack.setDisable(true);
 		}
 	}
 	
 	public void onBtFinish() throws IOException {
-		if (ara01.getHealth() == 0) {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/gui/FirstView.fxml"));
-		newPane.getChildren().setAll(pane);
-		} else { btFinish.setDisable(true); }
+		if (enemies[enemySetting].getHealth() > 0) {
+			btFinish.setDisable(true);
+		
+		} else { switch (storyNumber) {
+		case 1: AnchorPane pane = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+				newPane.getChildren().setAll(pane);
+		case 2: AnchorPane pane2 = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+		newPane.getChildren().setAll(pane2);
+		case 3: AnchorPane pane3 = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+		newPane.getChildren().setAll(pane3);
+		case 4: AnchorPane pane4 = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+		newPane.getChildren().setAll(pane4);
+		case 5: AnchorPane pane5 = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+		newPane.getChildren().setAll(pane5);
+		default: AnchorPane pane6 = FXMLLoader.load(getClass().getResource("/gui/CharacterCreationView.fxml"));
+		newPane.getChildren().setAll(pane6);}
+		}
+		
 		
 	}
 	

@@ -6,8 +6,10 @@ public class Personagem {
 	private int luck;
 	private int dmg = 2;
 	private int maxHp;
-	private int healthPotion = 0;
-
+	private int healthPotion;
+	private String vocation;
+	
+	
 	public Personagem() {
 
 	}
@@ -18,16 +20,11 @@ public class Personagem {
 		this.luck = luck;
 		this.dmg = dmg;
 	}
-
-	public void rollAttributes() {
-		setFighting(6 + (int) (Math.random() * 6 + 1));
-
-		setHealth(12 + (int) (Math.random() * 10 + 2));
-
-		setLuck(6 + (int) (Math.random() * 6 + 1));
-
-		setMaxHp(getHealth());
-
+	
+	public Personagem(int fighting, int health, int dmg) {
+		this.fighting = fighting;
+		this.health = health;
+		this.dmg = dmg;
 	}
 
 	public int getHealthPotion() {
@@ -77,5 +74,26 @@ public class Personagem {
 	public void setDmg(int dmg) {
 		this.dmg = dmg;
 	}
+
+	public String getVocation() {
+		return vocation;
+	}
+
+	public void setVocation(String vocation) {
+		this.vocation = vocation;
+	}
+
+
+	public void rollAttributes() {
+		setFighting(6 + (int) (Math.random() * 6 + 1));
+
+		setHealth(12 + (int) (Math.random() * 10 + 2));
+
+		setLuck(6 + (int) (Math.random() * 6 + 1));
+
+		setMaxHp(getHealth());
+
+	}
+	
 
 }

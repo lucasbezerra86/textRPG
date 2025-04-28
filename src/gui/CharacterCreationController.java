@@ -9,8 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class ViewController {
-	static Personagem char01 = new Personagem();
+public class CharacterCreationController extends Personagem {
+	
+		
+	protected static Personagem char01 = new Personagem();
+
 	@FXML
 	private Button btRoll;
 	
@@ -27,10 +30,12 @@ public class ViewController {
 	private Label lbLuck;
 	
 	@FXML
-	private AnchorPane newPane;
+	protected AnchorPane newPane;
+	
+	
 	
 		public void onBtAcceptAction() throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/gui/SecondView.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/gui/CombatView.fxml"));
 		newPane.getChildren().setAll(pane);
 		
 	}

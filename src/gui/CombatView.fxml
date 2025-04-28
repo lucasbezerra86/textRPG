@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CombatController">
+<AnchorPane fx:id="newPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CombatController">
    <children>
       <ImageView fitHeight="237.0" fitWidth="389.0" layoutX="213.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="118.0" layoutY="335.0" text="Health: ">
@@ -24,7 +24,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btFinish" layoutX="369.0" layoutY="528.0" mnemonicParsing="false" text="Finish">
+      <Button fx:id="btFinish" layoutX="369.0" layoutY="528.0" mnemonicParsing="false" onAction="#onBtFinish" text="Finish">
          <font>
             <Font size="20.0" />
          </font>
